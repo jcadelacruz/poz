@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Main {
+static int interval;
+static Timer timer;
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    //String secs = 100000;
+    int delay = 1000;
+    int period = 1000;
+    timer = new Timer();
+    interval = 100000;
+    //System.out.println(secs);
+    timer.scheduleAtFixedRate(new TimerTask() {
+      public void run() {
+        Plant k = new Plant();
+        System.out.println("jakao");
+        String playing = sc.nextLine();
+        if(playing.equals("stop")){
+          interval = 6;
+        }
+
+        System.out.println("runtime:" + (100000-setInterval()));
+        //System.out.println("[][][][][]\n[][][][][]");
+      }
+    }, delay, period);
+  }
+  private static final int setInterval() {
+    if (interval == 1)
+      timer.cancel();
+    return --interval;
+  }
+}
